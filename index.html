@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 3 3%22%3E%3Crect width=%223%22 height=%223%22 fill=%22%23191713%22/%3E%3Crect x=%22.2%22 y=%22.2%22 width=%22.7%22 height=%22.7%22 fill=%22%23e5cd00%22/%3E%3Crect x=%222.1%22 y=%222.1%22 width=%22.7%22 height=%22.7%22 fill=%22%23e5cd00%22/%3E%3C/svg%3E">
+<meta property="og:title" content="Moupiya Ukil, product design leader">
+<meta property="og:description" content="Case studies by Moupiya Ukil, product design leader.">
+<title>Moupiya Ukil Portfolio</title>
+<meta name="description" content="Case studies and leadership work by Moupiya Ukil, product design leader.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: dark editorial shell on a 12-col grid; warm and paper bands alternate on long scrolls; the nav inverts per band. */
+:root{
+  --ink:#191713;        /* page shell */
+  --ink-2:#23201b;      /* raised surface on dark */
+  --ink-line:#3a352d;
+  --warm:#efe9df;       /* warm band */
+  --paper:#faf8f4;      /* light band */
+  --text-dark:#191713;
+  --text-dark-2:#5c564c;
+  --text-light:#f3efe7;
+  --text-light-2:#a49d90;
+  --line-light:#ddd5c8;
+  --accent:#e5cd00;     /* the yellow underline from Moupiya's résumé */
+  --accent-ink:#191713;
+
+  --f-display:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-body:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+
+  --text-hero:clamp(2.6rem,1.4rem + 5.2vw,5.6rem);
+  --text-h2:clamp(1.9rem,1.2rem + 2.6vw,3.2rem);
+  --text-h3:clamp(1.3rem,1.05rem + .9vw,1.75rem);
+  --text-lead:clamp(1.08rem,1rem + .35vw,1.3rem);
+  --text-body:1rem;
+  --text-small:.8125rem;
+
+  --page-max:1280px;
+  --page-gutter:max(16px,env(safe-area-inset-left,0px));
+  --page-gutter-r:max(16px,env(safe-area-inset-right,0px));
+  --page-gap:clamp(16px,2vw,28px);
+  --radius-chip:999px;
+  --radius-card:18px;
+  --radius-panel:26px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--ink);color:var(--text-light);font-family:var(--f-body);font-size:var(--text-body);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-variation-settings:"opsz" 32;letter-spacing:-.035em;line-height:1.02;margin:0;text-wrap:balance;font-weight:650}
+p{margin:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:12px;top:-60px;background:var(--accent);color:var(--accent-ink);padding:8px 14px;border-radius:8px;z-index:100;font-weight:600;text-decoration:none}
+.skip:focus{top:calc(12px + env(safe-area-inset-top,0px))}
+
+.wrap{max-width:var(--page-max);margin:0 auto;padding-left:var(--page-gutter);padding-right:var(--page-gutter-r)}
+@media (min-width:720px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--page-gap)}
+
+/* bands */
+.band{position:relative}
+.band-dark{background:var(--ink);color:var(--text-light)}
+.band-warm{background:var(--warm);color:var(--text-dark)}
+.band-paper{background:var(--paper);color:var(--text-dark)}
+.band-warm,.band-paper{--muted:var(--text-dark-2);--line:var(--line-light)}
+.band-dark{--muted:var(--text-light-2);--line:var(--ink-line)}
+.muted{color:var(--muted)}
+.eyebrow{font-family:var(--f-mono);font-size:var(--text-small);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+/* nav */
+.nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;transition:color .25s,background-color .25s}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.nav[data-on="light"]{color:var(--text-dark)}
+.nav[data-on="dark"]{color:var(--text-light)}
+.nav.scrolled[data-on="dark"]{background:color-mix(in oklab,var(--ink) 82%,transparent);backdrop-filter:blur(12px)}
+.nav.scrolled[data-on="light"]{background:color-mix(in oklab,var(--paper) 82%,transparent);backdrop-filter:blur(12px)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:650;letter-spacing:-.01em}
+.logo-mark{width:26px;height:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.logo-mark i{background:currentColor;border-radius:1px}
+.logo-mark i:nth-child(2),.logo-mark i:nth-child(4),.logo-mark i:nth-child(9){background:var(--accent)}
+.logo-mark i:nth-child(6),.logo-mark i:nth-child(8){opacity:.25}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{text-decoration:none;padding:8px 12px;border-radius:var(--radius-chip);font-size:.94rem}
+.nav-links a[aria-current="page"]{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:6px}
+.nav-links a:hover{background:color-mix(in oklab,currentColor 10%,transparent)}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 .94rem/1 var(--f-body);padding:13px 20px;border-radius:var(--radius-chip);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,background-color .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-ondark{background:var(--text-light);color:var(--ink)}
+.btn-onlight{background:var(--ink);color:var(--text-light)}
+.btn-ghost{border-color:currentColor;background:transparent;color:inherit}
+.nav .btn{padding:10px 16px}
+.menu-btn{display:none;background:none;border:0;color:inherit;font:600 .94rem var(--f-body);padding:10px 4px;cursor:pointer}
+@media (max-width:760px){.nav-links{display:none}.menu-btn{display:block}}
+.menu{position:fixed;inset:0;z-index:55;background:var(--ink);color:var(--text-light);clip-path:circle(0 at calc(100% - 40px) 34px);transition:clip-path .55s cubic-bezier(.7,0,.2,1);display:flex;flex-direction:column;justify-content:center;padding:calc(80px + env(safe-area-inset-top,0px)) max(24px,env(safe-area-inset-right,0px)) calc(40px + env(safe-area-inset-bottom,0px)) max(24px,env(safe-area-inset-left,0px));visibility:hidden}
+.menu.open{clip-path:circle(150% at calc(100% - 40px) 34px);visibility:visible}
+.menu a{font:650 clamp(2.4rem,10vw,3.4rem)/1.15 var(--f-display);letter-spacing:-.04em;text-decoration:none;display:block;transform:translateY(24px);opacity:0;transition:transform .5s,opacity .5s}
+.menu.open a{transform:none;opacity:1}
+.menu.open a:nth-child(2){transition-delay:.06s}.menu.open a:nth-child(3){transition-delay:.12s}.menu.open a:nth-child(4){transition-delay:.18s}
+.menu-close{position:absolute;top:calc(18px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));background:none;border:0;color:inherit;font:600 .94rem var(--f-body);padding:10px;cursor:pointer}
+
+/* hero */
+.hero{overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,var(--ink));pointer-events:none}
+.hero .wrap{position:relative;z-index:1;padding-top:calc(140px + env(safe-area-inset-top,0px));padding-bottom:72px}
+.hero h1{font-size:var(--text-hero);max-width:14ch;font-weight:680}
+.hero h1 em{font-style:normal;background:linear-gradient(var(--accent),var(--accent)) 0 92%/100% .09em no-repeat}
+.hero .lead{font-size:var(--text-lead);color:var(--text-light-2);max-width:60ch;margin-top:28px}
+.hero .lead strong{color:var(--text-light);font-weight:550}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:40px}
+.hero-meta div{display:flex;flex-direction:column;gap:2px}
+.hero-meta b{font:650 1.6rem/1.1 var(--f-display);letter-spacing:-.03em;color:var(--text-light);font-variant-numeric:tabular-nums}
+.hero-meta span{font-size:var(--text-small);color:var(--text-light-2)}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px;padding-block:8px 36px}
+.chip{font:500 .9rem/1 var(--f-body);padding:10px 14px;border-radius:var(--radius-chip);border:1px solid var(--line);background:transparent;color:inherit;cursor:pointer;display:inline-flex;gap:8px;align-items:center;transition:background-color .2s,color .2s,border-color .2s}
+.chip sup{font:500 .72rem var(--f-mono);opacity:.6;vertical-align:baseline}
+.chip:hover{border-color:currentColor}
+.chip[aria-pressed="true"]{background:var(--text-light);color:var(--ink);border-color:var(--text-light)}
+
+/* work list */
+.work{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--page-gap);padding-bottom:96px}
+.card{grid-column:span 6;text-decoration:none;display:flex;flex-direction:column;gap:18px;min-width:0}
+.card.feature{grid-column:span 12}
+.card.tall .cover{aspect-ratio:4/4.4}
+@media (max-width:860px){.card,.card.feature{grid-column:span 12}.card.tall .cover{aspect-ratio:4/3}}
+.cover{position:relative;border-radius:var(--radius-card);overflow:hidden;aspect-ratio:4/3;max-width:100%;background:var(--c-bg);color:var(--c-fg);display:flex;flex-direction:column;justify-content:space-between;padding:clamp(18px,3vw,32px);isolation:isolate}
+.card.feature .cover{aspect-ratio:16/8}
+@media (max-width:860px){.card.feature .cover{aspect-ratio:4/3}}
+.cover::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;background-image:linear-gradient(var(--c-grid) 1px,transparent 1px),linear-gradient(90deg,var(--c-grid) 1px,transparent 1px);background-size:22px 22px;mask-image:radial-gradient(120% 90% at 100% 100%,#000 10%,transparent 70%);-webkit-mask-image:radial-gradient(120% 90% at 100% 100%,#000 10%,transparent 70%)}
+.cover .px{position:absolute;right:0;bottom:0;z-index:-1;display:grid;grid-template-columns:repeat(8,22px);grid-auto-rows:22px}
+.cover .px i{background:var(--c-px)}
+.cover-top{display:flex;justify-content:space-between;gap:12px;font:500 .78rem var(--f-mono);letter-spacing:.05em;text-transform:uppercase;opacity:.8}
+.cover-metric{font:680 clamp(2.4rem,1.4rem + 4.5vw,5.4rem)/.95 var(--f-display);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.cover-metric small{display:block;font:500 clamp(.85rem,.8rem + .3vw,1rem)/1.4 var(--f-body);letter-spacing:0;margin-top:12px;opacity:.75;max-width:30ch}
+.card .cover{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.card:hover .cover{transform:scale(.985)}
+.card-body{display:grid;gap:8px}
+.card-kicker{font:500 var(--text-small) var(--f-mono);letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
+.card h3{font-size:var(--text-h3);letter-spacing:-.025em;line-height:1.15}
+.card p{color:var(--muted);max-width:60ch}
+.card .go{display:inline-flex;gap:8px;align-items:center;font-weight:600;font-size:.94rem;margin-top:4px}
+.card .go span{transition:transform .25s}
+.card:hover .go span{transform:translateX(4px)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tag{font:500 .72rem var(--f-mono);letter-spacing:.03em;padding:5px 9px;border-radius:var(--radius-chip);border:1px solid var(--line);color:var(--muted)}
+.empty{grid-column:span 12;padding:40px 0;color:var(--muted)}
+
+/* short portfolio */
+.section{padding-block:clamp(72px,9vw,128px)}
+.section-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--page-gap);margin-bottom:48px;align-items:end}
+.section-head h2{grid-column:span 7;font-size:var(--text-h2)}
+.section-head p{grid-column:span 5;color:var(--muted);max-width:52ch}
+@media (max-width:860px){.section-head h2,.section-head p{grid-column:span 12}}
+.short{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--page-gap)}
+@media (max-width:860px){.short{grid-template-columns:1fr}}
+.short article{border-top:1px solid var(--line);padding-top:20px;display:grid;gap:10px;align-content:start;min-width:0}
+.short h3{font-size:1.3rem;letter-spacing:-.02em}
+.short .yr{font:500 var(--text-small) var(--f-mono);color:var(--muted)}
+
+/* cta */
+.cta{text-align:left}
+.cta h2{font-size:var(--text-h2);max-width:20ch}
+.cta p{font-size:var(--text-lead);color:var(--muted);max-width:56ch;margin-top:20px}
+.cta .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;align-items:center}
+.email{font:500 .94rem var(--f-mono);user-select:all;padding:12px 16px;border:1px dashed var(--line);border-radius:12px}
+.copy-msg{font-size:var(--text-small);color:var(--muted);min-height:1.2em}
+
+footer{border-top:1px solid var(--ink-line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-block:28px calc(28px + env(safe-area-inset-bottom,0px));font-size:var(--text-small);color:var(--text-light-2)}
+footer nav{display:flex;flex-wrap:wrap;gap:18px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--text-light)}
+
+/* case study */
+.cs-hero .wrap{padding-bottom:56px}
+.back{display:inline-flex;gap:8px;text-decoration:none;font-size:.94rem;color:var(--text-light-2);margin-bottom:36px}
+.back:hover{color:var(--text-light)}
+.cs-hero h1{font-size:clamp(2.3rem,1.3rem + 4vw,4.6rem);max-width:18ch}
+.cs-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:var(--page-gap);margin-top:48px;border-top:1px solid var(--ink-line);padding-top:20px}
+.cs-facts div{display:grid;gap:4px;min-width:0}
+.cs-facts dt{font:500 .74rem var(--f-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--text-light-2)}
+.cs-facts dd{margin:0;font-size:.95rem}
+@media (max-width:760px){.cs-facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:var(--page-gap)}
+.outcome{position:relative;padding:26px 24px;min-width:0}
+.outcome svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.outcome svg path{fill:none;stroke:var(--line);stroke-width:1.2;vector-effect:non-scaling-stroke}
+.outcome b{display:block;font:680 clamp(2rem,1.5rem + 2vw,3rem)/1 var(--f-display);letter-spacing:-.045em;font-variant-numeric:tabular-nums}
+.outcome span{display:block;margin-top:10px;color:var(--muted);font-size:.94rem}
+.rail{display:grid;grid-template-columns:220px minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:start}
+@media (max-width:860px){.rail{grid-template-columns:1fr}.toc{display:none}}
+.toc{position:sticky;top:calc(100px + env(safe-area-inset-top,0px));display:grid;gap:4px;font-size:.9rem}
+.toc a{text-decoration:none;color:var(--muted);padding:6px 0 6px 14px;border-left:2px solid var(--line)}
+.toc a.on{color:var(--text-dark);border-left-color:var(--accent)}
+.prose{max-width:68ch;display:grid;gap:56px}
+.prose section{display:grid;gap:16px;scroll-margin-top:100px}
+.prose h2{font-size:clamp(1.6rem,1.2rem + 1.4vw,2.3rem)}
+.prose p,.prose li{font-size:1.06rem;line-height:1.7;color:#2c2924}
+.prose ul{margin:0;padding-left:1.2em;display:grid;gap:8px}
+.prose li::marker{color:var(--text-dark-2)}
+.pull{font:600 clamp(1.35rem,1.1rem + 1vw,1.85rem)/1.3 var(--f-display);letter-spacing:-.02em;color:var(--text-dark);padding-left:20px;border-left:3px solid var(--accent)}
+.principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:600px){.principles{grid-template-columns:1fr}}
+.principles div{background:var(--paper);border:1px solid var(--line-light);border-radius:14px;padding:18px;display:grid;gap:6px;min-width:0}
+.principles b{font:650 1.15rem var(--f-display);letter-spacing:-.02em}
+.principles span{font-size:.92rem;color:var(--text-dark-2);line-height:1.5}
+.shot{margin:8px 0;display:grid;gap:10px}
+.shot img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line-light);background:var(--paper)}
+.shot figcaption{font-size:.88rem;line-height:1.5;color:var(--text-dark-2)}
+.areas{display:flex;flex-wrap:wrap;gap:8px}
+.areas span{font-size:.9rem;padding:7px 12px;border-radius:var(--radius-chip);background:var(--paper);border:1px solid var(--line-light)}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:var(--page-gap)}
+@media (max-width:700px){.pn{grid-template-columns:1fr}}
+.pn a{text-decoration:none;border:1px solid var(--line);border-radius:var(--radius-card);padding:24px;display:grid;gap:8px;transition:border-color .2s,background-color .2s;min-width:0}
+.pn a:hover{border-color:currentColor}
+.pn a.next{text-align:right}
+.pn h3{font-size:1.25rem;letter-spacing:-.02em;line-height:1.2}
+
+/* about */
+.about-intro{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--page-gap)}
+.about-intro .l{grid-column:span 7}
+.about-intro .r{grid-column:span 5;display:grid;gap:18px;align-content:start}
+@media (max-width:860px){.about-intro .l,.about-intro .r{grid-column:span 12}}
+.about-intro p{font-size:var(--text-lead);line-height:1.55}
+.about-intro p+p{margin-top:18px}
+.values{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--page-gap)}
+@media (max-width:960px){.values{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.values{grid-template-columns:1fr}}
+.values article{border-top:2px solid var(--text-dark);padding-top:18px;display:grid;gap:10px;align-content:start;min-width:0}
+.values h3{font-size:1.25rem;letter-spacing:-.02em}
+.values p{color:var(--muted);font-size:.98rem}
+.timeline{display:grid}
+.tl{display:grid;grid-template-columns:200px minmax(0,1fr);gap:var(--page-gap);padding-block:28px;border-top:1px solid var(--line)}
+@media (max-width:760px){.tl{grid-template-columns:1fr;gap:8px}}
+.tl .when{font:500 var(--text-small) var(--f-mono);color:var(--muted);padding-top:6px}
+.tl h3{font-size:1.35rem;letter-spacing:-.02em;line-height:1.2}
+.tl .org{color:var(--muted);margin-top:4px}
+.tl p{margin-top:12px;max-width:72ch}
+.tl ul{margin:12px 0 0;padding-left:1.1em;display:grid;gap:6px;max-width:72ch}
+.cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--page-gap)}
+@media (max-width:860px){.cols3{grid-template-columns:1fr}}
+.cols3 h3{font-size:1.1rem;letter-spacing:-.01em;margin-bottom:14px}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.list li{display:grid;gap:2px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.list small{color:var(--muted);font-family:var(--f-mono);font-size:.76rem}
+
+/* earlier work image cards */
+.short-feature{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--page-gap);margin-bottom:48px}
+@media (max-width:960px){.short-feature{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.short-feature{grid-template-columns:1fr}}
+.cap-video{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:var(--page-gap);align-items:center;margin-bottom:48px}
+@media (max-width:960px){.cap-video{grid-template-columns:1fr}}
+.cap-video figure{margin:0;border-radius:var(--radius-card);overflow:hidden;background:#fff;border:1px solid var(--line)}
+.cap-video video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#f6f8f9}
+.cap-video-text{display:grid;gap:14px}
+.cap-video h3{font-size:1.35rem;letter-spacing:-.02em}
+.shot{text-decoration:none;display:grid;gap:14px;min-width:0}
+.shot figure{margin:0;border-radius:var(--radius-card);overflow:hidden;background:#fff;aspect-ratio:16/10;max-width:100%;border:1px solid var(--line)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.shot:hover img{transform:scale(1.03)}
+.shot h3{font-size:1.35rem;letter-spacing:-.02em}
+.shot .go{font-weight:600;font-size:.94rem}
+.prose figure{margin:0;display:grid;gap:10px}
+.prose figure img{width:100%;border-radius:14px;border:1px solid var(--line-light);background:#fff;display:block}
+.prose figcaption{font-size:.86rem;color:var(--text-dark-2)}
+/* writing */
+.writing{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--page-gap)}
+@media (max-width:960px){.writing{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.writing{grid-template-columns:1fr}}
+.post{text-decoration:none;display:grid;grid-template-rows:auto 1fr auto;gap:12px;padding:24px;border-radius:var(--radius-card);background:var(--paper);border:1px solid var(--line);min-width:0;transition:transform .25s,border-color .25s}
+.post:hover{transform:translateY(-2px);border-color:var(--text-dark)}
+.post h3{font-size:1.3rem;letter-spacing:-.02em;line-height:1.2}
+.post .foot{font-weight:600;font-size:.9rem}
+.post.talk{background:var(--ink);color:var(--text-light);border-color:var(--ink)}
+.post.talk .eyebrow{color:var(--accent)}
+/* philosophy */
+.philo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,5vw,72px)}
+@media (max-width:860px){.philo{grid-template-columns:1fr}}
+.philo h3.group{font:500 var(--text-small) var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.principle{border-top:1px solid var(--line);padding-block:22px;display:grid;gap:8px}
+.principle h4{margin:0;font:650 1.35rem/1.2 var(--f-display);letter-spacing:-.02em}
+.principle p{color:var(--muted);max-width:56ch}
+.principle blockquote{margin:0;font-style:italic;color:var(--text-dark)}
+.principle ul{margin:0;padding-left:1.1em;color:var(--muted);display:grid;gap:4px}
+/* testimonials */
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--page-gap)}
+@media (max-width:960px){.quotes{grid-template-columns:1fr}}
+.quote{margin:0;display:grid;grid-template-rows:auto 1fr auto;gap:18px;padding:28px;border-radius:var(--radius-panel);background:var(--ink-2);border:1px solid var(--ink-line);min-width:0}
+.quote .mark{font:700 3rem/1 var(--f-display);color:var(--accent);height:.5em}
+.quote p{color:var(--text-light);font-size:1.02rem;line-height:1.65}
+.quote figcaption{display:grid;gap:2px;font-size:.9rem}
+.quote figcaption b{font-weight:600}
+.quote figcaption span{color:var(--text-light-2)}
+.reveal{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.pre{transform:translateY(28px)}
+@media (prefers-reduced-motion:reduce){.reveal,.reveal.pre{transform:none;transition:none}.menu,.menu a{transition:none}}
+.view[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav" data-on="dark">
+  <div class="wrap">
+    <a class="logo" href="#work" data-go="work" aria-label="Moupiya Ukil, home">
+      <span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+      Moupiya Ukil
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#work" data-go="work">Work</a>
+      <a href="#about" data-go="about">About</a>
+      <a href="#cv" data-go="cv">CV</a>
+      <a class="btn btn-primary" href="#contact" data-go="contact">Get in touch</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</header>
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="menu-close" id="menuClose">Close</button>
+  <a href="#work" data-go="work">Work</a>
+  <a href="#about" data-go="about">About</a>
+  <a href="#cv" data-go="cv">CV</a>
+  <a href="#contact" data-go="contact">Contact</a>
+</div>
+
+<main id="main">
+  <!-- PORTFOLIO -->
+  <div class="view" id="view-work">
+    <section class="band band-dark hero" data-surface="dark">
+      <canvas id="pixels" aria-hidden="true"></canvas>
+      <div class="wrap">
+        <p class="eyebrow" style="margin-bottom:22px">Portfolio · Product design leader</p>
+        <h1>Case studies &amp; <em>leadership</em> work</h1>
+        <p class="lead">Twelve years designing complex B2B products, from <strong>observability and AI alerting at Cisco AppDynamics</strong> to <strong>identity, access and device security at JumpCloud</strong>. Alongside the product work: the hiring, rituals and operating systems I build so design teams do their best work.</p>
+        <div class="hero-meta">
+          <div><b>12+</b><span>years in product design</span></div>
+          <div><b>Enterprise SaaS</b><span>design expertise</span></div>
+          <div><b>Global</b><span>design partnerships led</span></div>
+          <div><b>Design for &amp; with AI</b><span>AI products and operational efficiency using AI</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-dark" data-surface="dark">
+      <div class="wrap">
+        <div class="filters" id="filters" role="group" aria-label="Filter work"></div>
+        <div class="work" id="workGrid"></div>
+      </div>
+    </section>
+
+    <section class="band band-paper section" data-surface="light">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Writing &amp; talks</h2>
+          <p>Notes from leading design teams, published on Medium as the "Learning as a design leader" series, and a talk at Cisco's design conference.</p>
+        </div>
+        <div class="writing reveal" id="writing"></div>
+      </div>
+    </section>
+
+    <section class="band band-warm section" data-surface="light">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Earlier work</h2>
+          <p>Before leading teams, I designed retail CRM tools at Capillary, ran client work at ITC's Digital Design Studio, and trained in interaction design at IIT Guwahati.</p>
+        </div>
+        <div class="cap-video reveal">
+          <figure>
+            <video controls preload="metadata" playsinline poster="video/capillary-ux-demo-poster.webp" width="1920" height="1080">
+              <source src="video/capillary-ux-demo.mp4" type="video/mp4">
+            </video>
+          </figure>
+          <div class="cap-video-text">
+            <span class="card-kicker">Capillary Technologies · UX Designer · 2014 – 2017</span>
+            <h3>My Capillary work, in four minutes</h3>
+            <p class="muted">A narrated walkthrough of three projects: Retro Transactions, letting store associates attach loyalty customers to past bills; StoreCare, a monitoring dashboard and command center for store support teams; and Online to Offline, turning stores into pick-up points for online orders.</p>
+          </div>
+        </div>
+        <div class="short reveal">
+          <article>
+            <span class="yr">ITC Infotech · 2017 – 2018</span>
+            <h3>Digital Design Studio</h3>
+            <p class="muted">Designed for Honeywell, Bayer, Eurofins, Lifestyle, DHL and more. I learned to move fast and keep quality high, and loved pitching proposals to win the work.</p>
+          </article>
+          <article>
+            <span class="yr">2012 – 2014</span>
+            <h3>IIT Guwahati, M.Des</h3>
+            <p class="muted">Master's in Interaction Design at the Department of Design, after a B.Tech in Electronics &amp; Electrical from Mody University.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CASE STUDY -->
+  <div class="view" id="view-case" hidden></div>
+
+  <!-- ABOUT -->
+  <div class="view" id="view-about" hidden>
+    <section class="band band-dark hero" data-surface="dark">
+      <canvas class="pixels-alt" aria-hidden="true"></canvas>
+      <div class="wrap">
+        <p class="eyebrow" style="margin-bottom:22px">About</p>
+        <h1>I build design teams that <em>earn trust</em></h1>
+        <p class="lead">Senior Design Manager at JumpCloud, heading design for APAC and EMEA. Previously India Site Lead for design at Opendoor and at AppDynamics, Cisco, where I helped design Cisco's flagship Full-Stack Observability offering.</p>
+      </div>
+    </section>
+
+    <section class="band band-paper section" data-surface="light">
+      <div class="wrap about-intro">
+        <div class="l reveal">
+          <p>I'm a designer who is also passionate about building design teams. At JumpCloud, Opendoor and Cisco I've shaped a culture of <strong>mutual trust, ownership and curiosity</strong> as the foundation of each team.</p>
+          <p>Along with designing competitive, user-centred enterprise products, I've played a key role in design operations, data-informed design, growing the research practice, and making sure design partners well with its cross-functional counterparts.</p>
+        </div>
+        <div class="r reveal">
+          <p class="eyebrow">What I look for</p>
+          <p class="muted" style="font-size:1.05rem">A design team with a clear vision and a culture of trust, respect, partnership and resilience, working on a complex product where coaching, user insight, collaboration and adaptability matter.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-warm section" data-surface="light">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>How I add value to design teams</h2>
+          <p>Four strengths I bring to every team, from a new team at Opendoor to a distributed one at JumpCloud.</p>
+        </div>
+        <div class="values reveal">
+          <article><h3>Cross-domain product design</h3><p>Observability and AIOps, identity and device security, real-estate operations and retail CRM.</p></article>
+          <article><h3>Collaborating across global teams</h3><p>The bridge between design and product teams on three continents, with executives kept aligned.</p></article>
+          <article><h3>Hiring expertise across levels</h3><p>Built teams from scratch, set up design hiring practices and levelled up the career ladder.</p></article>
+          <article><h3>Building a high-trust, motivated team</h3><p>Design Pairs, Design Talks and honest feedback, so designers grow and stay.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-paper section" data-surface="light">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>My design &amp; leadership philosophy</h2>
+          <p>The principles I design by, and the ones I lead by.</p>
+        </div>
+        <div class="philo">
+          <div class="reveal">
+            <h3 class="group">Design philosophy</h3>
+            <div class="principle"><h4>Don't make me think</h4><p>Design should be simple and intuitive to use, like a smooth ride on a clear road.</p></div>
+            <div class="principle"><h4>Remember the users</h4><p>Users belong in the design process. They will use the product, not you or me. Sharing early prototypes, gathering feedback and putting it on the roadmap brings them closer.</p></div>
+            <div class="principle"><h4>Measure the impact</h4><blockquote>"If you can't measure it, you can't manage it." Peter Drucker</blockquote><p>Data-informed design aligns design and business by showing design's impact. It reduces opinion-based decisions, shows where more qualitative research is needed, and makes room for experimentation and user advocacy.</p></div>
+          </div>
+          <div class="reveal">
+            <h3 class="group">Leadership philosophy</h3>
+            <div class="principle"><h4>Servant leadership</h4><p>I'm here to serve my team, and to carve a path for each person's success and growth, which drives the company's success too. I also serve my "A team" of peer leaders and my leadership team, to keep us aligned on the product.</p></div>
+            <div class="principle"><h4>Situational leadership</h4><p>Knowing my team and peers well tells me when, why and how to adapt. It lets me coach from each person's strengths.</p></div>
+            <div class="principle"><h4>Non-negotiables</h4><ul><li>Trust and radical kindness, for immediate peers and beyond.</li><li>Respect for the team and for oneself.</li><li>User-centricity, and a shameless commitment to it.</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-dark section" data-surface="dark">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>What people say</h2>
+          <p>From a researcher, a designer I mentored, and a design leader I worked alongside.</p>
+        </div>
+        <div class="quotes reveal">
+          <figure class="quote"><div class="mark" aria-hidden="true">“</div><p>Every interaction with Moupiya is a rewarding experience. She constantly pushes me to level up 360°. One of the reasons why I decided to join AppDynamics was to work with an amazing mentor like her. Moupiya has always acknowledged the good work and never hesitated in telling where I needed to improve. Her feedback is articulated very well and they give me the room to bring something new to the table every time. She is wonderful team player, leader, and inspiring personality for the whole team.</p><figcaption><b>Abhishek Dhar</b><span>Senior UX Designer, ServiceNow</span></figcaption></figure>
+          <figure class="quote"><div class="mark" aria-hidden="true">“</div><p>Moupiya is a vibrant design leader who is dedicated to delivering user-centered design and experience. She is a strong advocate of instilling users' voice in product development, and she tirelessly seeks alignment across Product, Engineering, and UX. As a leader, she allows room for much creativity and offers a great balance of support, encouragement, and guidance. On top of it all, it is inspiring to see how she continues to find opportunities to learn and grow to become an even better design leader.</p><figcaption><b>Jennifer Suh</b><span>Senior UX Researcher, Cisco</span></figcaption></figure>
+          <figure class="quote"><div class="mark" aria-hidden="true">“</div><p>Moupiya is an earnest design practitioner, skilled in navigating the demands of design for enterprise solutions. She's passionate and purposeful about bringing out the best in her team, particularly nurturing and guiding young designers. She balances her role as a product expert with her enthusiasm for passion projects both at work and outside of it. Moupiya's keen interest in all things product design and her involvement in helping build a thriving design team were the highlights of our work together.</p><figcaption><b>Shalini Raghunathan</b><span>Co-founder, 3 Big Things</span></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-paper section" id="cv-anchor" data-surface="light">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Experience</h2>
+          <p style="text-align:right;max-width:none"><a class="btn btn-onlight" href="https://drive.google.com/file/d/16vQ4uNMBWA9zQlGNXam5rIwxui2nI6Op/view?usp=sharing" target="_blank" rel="noopener">Download CV ↗</a></p>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </section>
+
+    <section class="band band-warm section" data-surface="light">
+      <div class="wrap cols3">
+        <div class="reveal">
+          <h3>Education</h3>
+          <ul class="list">
+            <li>Masters in Design, Interaction Design<small>IIT Guwahati · 2012 – 2014</small></li>
+            <li>B.Tech, Electronics &amp; Electrical<small>Mody University, Jaipur · 2008 – 2012</small></li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h3>Certifications</h3>
+          <ul class="list">
+            <li>d.MBA: Business Education for Designers<small>2024</small></li>
+            <li>Product Strategy<small>Kellogg School of Management · 2022</small></li>
+            <li>Leading Complex Projects<small>IDEO U · 2022</small></li>
+            <li>UX Certificate<small>Nielsen Norman Group · 2021</small></li>
+            <li>AI: Implications for Business Strategy<small>MIT Sloan · 2019</small></li>
+            <li>Market Research &amp; Consumer Behavior<small>IE Business School · 2018</small></li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h3>Skills</h3>
+          <ul class="list">
+            <li>Leadership<small>Coaching · stakeholder management · strategic planning · alignment · conflict resolution · emotional intelligence</small></li>
+            <li>Product design<small>B2B products · design strategy · discovery workshops · information architecture · rapid prototyping · UX analytics</small></li>
+            <li>Research<small>Contextual inquiry · unmoderated testing · AI-moderated research</small></li>
+            <li>Beyond product design<small>Certified art therapist · pottery · mindful parenting · reading and writing</small></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CTA (shared) -->
+  <section class="band band-dark section cta" id="contact" data-surface="dark">
+    <div class="wrap">
+      <p class="eyebrow" style="margin-bottom:18px">Contact</p>
+      <h2>Building a complex enterprise product that needs design leadership?</h2>
+      <p>I'm always happy to talk about design teams, AI-first design practice, or how to make security and observability products easier to use.</p>
+      <div class="row">
+        <span class="email" id="email">moupiyaukil@gmail.com</span>
+        <button class="btn btn-ondark" id="copyEmail" type="button">Copy email</button>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/moupiyaukil/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <p class="copy-msg" id="copyMsg" aria-live="polite"></p>
+    </div>
+  </section>
+</main>
+
+<footer class="band-dark">
+  <div class="wrap">
+    <span>© 2026 Moupiya Ukil · Bengaluru, India</span>
+    <nav aria-label="Footer">
+      <a href="#work" data-go="work">Work</a>
+      <a href="#about" data-go="about">About</a>
+      <a href="#cv" data-go="cv">CV</a>
+      <a href="https://www.linkedin.com/in/moupiyaukil/" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const COVERS = {
+  amber:{bg:"#e5cd00",fg:"#191713",grid:"rgba(25,23,19,.18)",px:"rgba(25,23,19,.9)"},
+  coal:{bg:"#2a2620",fg:"#f3efe7",grid:"rgba(243,239,231,.10)",px:"#e5cd00"},
+  sand:{bg:"#e3dacb",fg:"#191713",grid:"rgba(25,23,19,.12)",px:"#191713"},
+  moss:{bg:"#3c4636",fg:"#f1efe4",grid:"rgba(241,239,228,.12)",px:"#c9d6a5"},
+  clay:{bg:"#b4644a",fg:"#fbf3ea",grid:"rgba(251,243,234,.16)",px:"#2a1a14"},
+  slate:{bg:"#34404a",fg:"#eef1f2",grid:"rgba(238,241,242,.12)",px:"#9fc2d4"}
+};
+
+const WORK = [
+  {
+    id:"alerting", layout:"feature", cover:"amber",
+    company:"Cisco AppDynamics", kind:"Case study", years:"2018 – 2024",
+    metric:"60m → 3s", metricNote:"Time on task to set up an alert, before and after",
+    title:"Alert Explorer: a unified alerting platform with AI/ML",
+    summary:"Led the end-to-end alerting framework for Cisco's Full-Stack Observability, so teams find the real issue fast instead of drowning in false alerts.",
+    tags:["Case study","AI","Observability"],
+    facts:[["Role","Design lead, end to end"],["Company","AppDynamics, Cisco"],["Partners","Product, engineering, senior leadership"],["Domain","AIOps, MELT telemetry"]],
+    outcomes:[["60m → 3s","Time on task to configure an alert: 60+ minutes down to 3–10 seconds"],["$1.5B","Total addressable market (Gartner)"],["+50%","What customers said they'd pay for the capability"]],
+    sections:[
+      ["The brief",`<p>The goal was to reduce <strong>Mean Time to Identify (MTTI)</strong> by alerting users in time, with the information they need to start troubleshooting.</p><p>In complex application infrastructure, a single issue can trigger an overwhelming number of alerts. False alerts push MTTI up. Anomaly Detection can bring it back down by raising an event automatically when something behaves abnormally, but only if people trust it.</p>`],
+      ["My role",`<p>I led design for the whole customer experience of the alerting framework. We started with manual alerts on metrics and events across every domain, from infrastructure to application monitoring. Then the team dug into the pain points people hit when configuring <em>automated</em> alerts.</p><p>I partnered with the product manager to define the roadmap, kept senior leaders aligned, and gave my team ownership of the design process from end to end.</p>${fig("alert-explorer-flow",1600,412,"Early storyboard: the on-call engineer, buried in alerts, trying to work out where to start.")}`],
+      ["Designing for AI",`<p class="pull">An AI feature only reduces work if people trust what it tells them.</p><p>We narrowed the work down to three principles for designing with machine learning, and used them to judge every decision.</p><div class="principles"><div><b>Control</b><span>People can see, tune and override what the model does.</span></div><div><b>Trust</b><span>The system explains why it raised an alert.</span></div><div><b>Accuracy</b><span>Fewer, better alerts beat more alerts.</span></div></div>`],
+      ["Scope",`<p>Over six years at AppDynamics I led UX across six verticals that fed into this work:</p><div class="areas"><span>AI/ML Ops</span><span>Database monitoring</span><span>Configuration</span><span>OpenTelemetry</span><span>Synthetic monitoring</span><span>Troubleshooting &amp; MELT data</span></div><p>Related case studies from this period: <a href="#smart-alert">Smart Alert Configuration</a>, <a href="#unified-config">Unified Configuration UX Strategy</a> and <a href="#itsi">IT Service Intelligence</a>.</p>`],
+      ["Impact",`<ul><li>Gartner sizes the market for this offering at <strong>$1.5B</strong>.</li><li>The capability helped win customers and raise revenue: customers said they'd pay <strong>50% more</strong> for it.</li><li>Time on task fell from <strong>over 60 minutes to 3–10 seconds</strong>.</li></ul>`],
+      ["Further reading",`<p>I wrote up what I learned in <a href="https://medium.com/@moupiyavibhaukil/designing-for-ai-from-the-observability-trenches-1ce4d84fb2c5" target="_blank" rel="noopener">Designing for AI: From the Observability Trenches ↗</a>.</p>`]
+    ]
+  },
+  {
+    id:"smart-alert", layout:"", cover:"coal",
+    company:"Cisco AppDynamics", kind:"Case study", years:"2018 – 2024",
+    metric:"MTTR ↓", metricNote:"Goal: cut the time to resolve application performance problems",
+    title:"Smart Alert Configuration",
+    summary:"Anomaly-based alerting that surfaces the unknown unknowns, so SREs stop hand-tuning health rules and wading through alert noise.",
+    tags:["Case study","AI","Observability"],
+    facts:[["Role","Design lead"],["Company","AppDynamics, Cisco"],["Primary user","Site reliability engineers"],["Domain","Alerting, anomaly detection"]],
+    outcomes:[["3","Problems tackled: manual effort, alert noise, needle in a haystack"],["1","Guided setup: entities, metrics and detection sensitivity"]],
+    sections:[
+      ["The problem",`<p>Mean Time To Resolution (MTTR) for application performance problems was too high.</p><p>Users set up the conditions for being alerted by hand. That is time-consuming and high-maintenance, and the <strong>unknown unknown</strong> issues behind a slowdown are easy to miss.</p>`],
+      ["Why it mattered",`<ul><li><strong>Manual effort.</strong> Creating and tuning health rules took an order of magnitude more effort than it should.</li><li><strong>Alert noise.</strong> The number of alerts was significantly higher than anyone could act on.</li><li><strong>Finding a needle in a haystack.</strong> Manual alerts only cover the conditions people already know about. Users needed the product to surface the what and the why of an issue automatically, and alert them.</li></ul>`],
+      ["Who it's for",`<p><strong>Francisco, an SRE</strong>, keeps the whole team in sync and the system up and running. His key job is proving reliability by keeping SLOs, SLAs and SLIs in check.</p>${fig("smart-alert-conductor",1600,887,"What Francisco wants to be: the conductor, keeping every part of the system in tune.")}${fig("smart-alert-firefighter",1600,907,"What manual alerting turns him into: a firefighter asking where to even start.")}`],
+      ["The design",`<p>Instead of writing rules, the user picks the entities to watch, reviews the metrics the machine-learning model monitors for that domain, and chooses a detection sensitivity. The product does the rest and explains what it found.</p>${fig("smart-alert-config",1440,1272,"Edit configuration: select entities, review monitored metrics, then choose High, Medium or Low detection sensitivity.")}`]
+    ]
+  },
+  {
+    id:"unified-config", layout:"", cover:"slate",
+    company:"Cisco AppDynamics", kind:"Case study", years:"2018 – 2024",
+    metric:"2 paths", metricNote:"Express and advanced configuration, one consistent experience",
+    title:"Unified Configuration UX Strategy",
+    summary:"A shared set of configuration guidelines, with examples, that made setup consistent across products and let the whole team contribute.",
+    tags:["Case study","Observability"],
+    facts:[["Role","Design lead, UX strategy"],["Company","AppDynamics, Cisco"],["Output","Guidelines and patterns"],["Used by","Product design teams across AppD"]],
+    outcomes:[["2","Configuration patterns: express and advanced"],["1","Shared guideline the whole team contributes to"]],
+    sections:[
+      ["The challenge",`<p>Getting data into AppDynamics meant configuring agents, credentials and integrations, and every team designed those flows its own way. The strategy was to sort every configuration into one of two patterns and give each a clear, reusable structure.</p>`],
+      ["Express configuration",`<p>Simple setups that can be done in a few steps, without leaving the product.</p>${fig("config-express",1600,1009,"An example of an express configuration page: generate a credential set and see every credential in one list.")}`],
+      ["Advanced configuration",`<p>Most configurations in AppDynamics fall into this category. They take multiple steps, and the user has to work beyond the product, for example by running commands in a terminal.</p>${fig("config-advanced",1600,1869,"The advanced configuration pattern, step by step.")}`],
+      ["Impact",`<p>The guidelines and examples added consistency to the configuration experience and gave the whole team a way to start contributing to them.</p>${fig("config-example-1",1440,1024,"In the product: configuration entry points for cloud connections and Kubernetes.")}<p class="pull">"In a complex project, it's not about controlling outcomes, it's about creating conditions that enable them to emerge in beautiful unexpected ways."</p>`]
+    ]
+  },
+  {
+    id:"itsi", layout:"", cover:"sand",
+    company:"Cisco", kind:"Case study", years:"2024",
+    metric:"MELT", metricNote:"Metrics, events, logs and traces in the right place for IT leaders",
+    title:"Designing an IT Service Intelligence application",
+    summary:"An AIOps experience that turns large volumes of operational data into insight, from the CIO's overview to the ITOps teams fixing incidents.",
+    tags:["Case study","AI","Observability"],
+    facts:[["Role","Design lead"],["Company","Cisco"],["Users","CIO, ITOps, service executives"],["Domain","AIOps, IT service management"]],
+    outcomes:[["3","Metrics the CIO tracks: availability, MTTR, business impact duration"],["3","User groups across the IT organisation"]],
+    sections:[
+      ["The goal",`<p>AIOps platforms analyse telemetry and events, and find meaningful patterns that support proactive responses. They support a wide range of IT practices, including I&amp;O, DevOps, SRE, security and service management.</p><p>ITOps leaders use them to analyse and share application lifecycle insights, which makes a digital business observable. The job of the design was to show the right information in the right place: metrics, events, logs and traces.</p>`],
+      ["Who the users are",`<p>I started by mapping how an IT organisation is laid out, from the organisation down to its portfolios, products and services.</p>${fig("itsi-it-landscape",1600,859,"The landscape of an IT organisation, using Cisco IT as the example.")}`],
+      ["The CIO",`<p><strong>Needs:</strong> strategic alignment, ROI analysis, insight into overall IT performance, and innovation opportunities. The metrics a CIO tracks are availability, MTTR and business impact duration.</p><ul><li>A central dashboard with a high-level view of the IT landscape: system health, performance and ongoing incidents, in real time, for quick decisions.</li><li>Critical incidents detected and prioritised automatically by their impact on the business, so attention goes to what matters most.</li><li>Seamless integration with existing IT infrastructure, with minimal disruption to ongoing operations.</li></ul>`],
+      ["ITOps and service executives",`<p>The same data, seen from the teams who run the services day to day, shaped the drill-down from the CIO's overview into incidents and the services they affect.</p>`]
+    ]
+  },
+  {
+    id:"things-we-know", layout:"", cover:"clay",
+    company:"Cisco AppDynamics", kind:"Case study", years:"2018 – 2024",
+    metric:"10+", metricNote:"Product squads, one shared design playbook",
+    title:"Things We Know But Forget: a design playbook",
+    summary:"A playbook that gives every designer, new or not, one source of truth for how the AppD design team works across the double diamond.",
+    tags:["Case study","Design ops"],
+    facts:[["Role","Initiator and co-author"],["Company","AppDynamics, Cisco"],["Partner","My mentee, Shiva"],["Audience","New and existing designers, cross-functional squads"]],
+    outcomes:[["3","Goals: pain-free onboarding, asynchronous learning, conversation starter"],["3","Content buckets: stage guidelines, challenges, extra tips"]],
+    sections:[
+      ["The problem",`<p>AppDynamics (Cisco) offers more than 10 products, each built by a dedicated squad of product managers, engineers, TPMs, product designers and user researchers.</p><p>With so many teams, it is hard to balance a consistent design process with the freedom to choose different design methods, and that gets in the way of aligning on goals and solutions.</p>`],
+      ["Why it mattered",`<p>It caused friction within the design team, with partners in each squad, and for every intern or new hire joining. There was no single story of how the AppD design team works that could act as one source of truth.</p>`],
+      ["The idea and process",`<p>I started this project after running into the same challenges in several organisations. When I shared the idea, my mentee Shiva wanted to build it with me.</p><p>We invited the design team to brainstorm and share their pain points at each stage of the double diamond.</p>${fig("things-double-diamond",1051,561,"The double diamond: design the right thing, then design things right.")}${fig("things-deliverables",1600,1224,"The team's input, mapped stage by stage.")}<p>We sorted what we heard into three buckets: guidelines for each design stage, challenges, and extra tips. Then we went deeper on Agile methods, collaboration and feedback, and research practice with a user researcher, a lead product designer, design operations and design managers.</p>`],
+      ["The playbook",`<div class="principles"><div><b>Pain-free onboarding</b><span>New designers learn how the team works from day one.</span></div><div><b>Asynchronous learning</b><span>Anyone can read it at their own pace, in any time zone.</span></div><div><b>Conversation starter</b><span>A shared reference that opens up discussions across squads.</span></div></div><p>With those three goals, we designed a playbook for new designers, and for anyone and everyone else.</p>${fig("things-cover",1600,900,"The Things We Know But Forget playbook.")}`]
+    ]
+  }
+];
+
+const WRITING = [
+  {t:"Designing for AI: From the Observability Trenches", k:"Essay", u:"https://medium.com/@moupiyavibhaukil/designing-for-ai-from-the-observability-trenches-1ce4d84fb2c5"},
+  {t:"Fearless and Alone: The Experience of Female Leadership in the Room", k:"Learning as a design leader #5", u:"https://medium.com/@moupiyavibhaukil/fearless-and-alone-the-experience-of-female-leadership-in-the-room-07f4e51ca523"},
+  {t:"Mindful Parenting Can Make You a Mindful Leader", k:"Learning as a design leader #4", u:"https://medium.com/@moupiyavibhaukil/mindful-parenting-can-make-you-a-mindful-leader-5442bda6e5b8"},
+  {t:"Walking that extra mile as a design leader", k:"Learning as a design leader #3", u:"https://medium.com/@moupiyavibhaukil/expanding-my-services-leadership3-bc328ac9a339"},
+  {t:"As leaders, let's say these more", k:"Learning as a design leader #2", u:"https://medium.com/@moupiyavibhaukil/learning-as-a-design-leader-2-c535eb6ddefc"}
+];
+
+const FILTERS = ["All","AI","Observability"];
+const LABEL = {"Case study":"Case studies"};
+
+const TIMELINE = [
+  {when:"Apr 2025 – now", title:"Senior Design Manager", org:"JumpCloud · India (remote)", text:"Lead a distributed product design team (designers in India and EMEA, plus a Senior PM) that owns UX for 4+ product areas across JumpCloud's identity, access and device management platform.", items:["Led design for Enterprise Portal, Homepage 2.0 and Workflows; Workflows is used by 200+ organisations.","Scaled design across the security portfolio, from Conditional Access to AI Gateway.","Moved the team to AI-first design and AI-moderated research.","Started Design Pairs and Design Talks; set up Jira design tracking and QA."]},
+  {when:"Sep 2024 – Apr 2025", title:"Senior Product Design Manager", org:"Opendoor · Bengaluru", text:"Head of design for Opendoor's enterprise product, Transaction and Operations. Recruited the India team, built the design system and set up its operating processes."},
+  {when:"Sep 2021 – Sep 2024", title:"Senior Product Design Manager", org:"AppDynamics, Cisco · Bengaluru", text:"Led design and research in India and bridged global design and product teams. Promoted three times in three years.", items:["Led UX for six verticals including AI/ML Ops, OpenTelemetry and synthetic monitoring.","Led the AI alerting framework: time on task from 60+ minutes to 3–10 seconds.","Owned Data Informed Design, the career ladder and new research practices across three continents."]},
+  {when:"Oct 2018 – Aug 2021", title:"Senior Product Designer", org:"AppDynamics, Cisco · Bengaluru", text:"Founding designer on a new product. Led Alerting and Cognition Engine, raising user satisfaction by 30%, and built a user-advocacy culture in a new team."},
+  {when:"May 2017 – Oct 2018", title:"UX Designer", org:"ITC Digital Design Studio · Bengaluru", text:"Ran discovery workshops and pitches for Honeywell, Bayer, DHL, Nike and Eurofins, cutting project turnaround time by 30%."},
+  {when:"Jun 2014 – Feb 2017", title:"UX Designer", org:"Capillary Technologies · Bengaluru", text:"Contextual inquiry in retail stores to improve POS billing; shipped the Store Center loyalty product."}
+];
+
+const $ = (s,el=document)=>el.querySelector(s);
+function fig(n,w,h,cap){return `<figure class="shot"><img src="img/${n}.webp" alt="${cap.replace(/"/g,"&quot;")}" loading="lazy" width="${w}" height="${h}"><figcaption>${cap}</figcaption></figure>`}
+const esc = s=>s.replace(/&(?!amp;)/g,"&amp;");
+
+function pixelBlock(seed){
+  let out="", x=seed*9301+49297;
+  for(let r=0;r<6;r++)for(let c=0;c<8;c++){
+    x=(x*9301+49297)%233280;
+    const on=(c+r>=7) && (x/233280) < (0.18+ (c+r-7)*0.07);
+    out+=`<i style="opacity:${on?1:0}"></i>`;
+  }
+  return `<div class="px" aria-hidden="true">${out}</div>`;
+}
+function coverStyle(name){const c=COVERS[name];return `--c-bg:${c.bg};--c-fg:${c.fg};--c-grid:${c.grid};--c-px:${c.px}`}
+
+function cardHTML(w,i){
+  return `<a class="card ${w.layout} reveal" href="#${w.id}" data-go="${w.id}">
+    <div class="cover" style="${coverStyle(w.cover)}">
+      <div class="cover-top"><span>${w.company}</span><span>${w.years}</span></div>
+      <div class="cover-metric">${w.metric}<small>${w.metricNote}</small></div>
+      ${pixelBlock(i+3)}
+    </div>
+    <div class="card-body">
+      <span class="card-kicker">${w.company}, ${w.kind.toLowerCase()}</span>
+      <h3>${esc(w.title)}</h3>
+      <p>${w.summary}</p>
+      <div class="tags">${w.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+      <span class="go">${w.kind==="Case study"?"Read case study":"Read more"} <span aria-hidden="true">→</span></span>
+    </div>
+  </a>`;
+}
+
+let activeFilter = "All";
+try{ activeFilter = localStorage.getItem("mu-filter") || "All"; }catch(e){}
+if(!FILTERS.includes(activeFilter)) activeFilter="All";
+
+function renderFilters(){
+  $("#filters").innerHTML = FILTERS.map(f=>{
+    const main = WORK.filter(w=>!w.short);
+    const n = f==="All"?main.length:main.filter(w=>w.tags.includes(f)).length;
+    return `<button class="chip" type="button" data-f="${f}" aria-pressed="${f===activeFilter}">${LABEL[f]||f}<sup>${n}</sup></button>`;
+  }).join("");
+}
+function renderWork(){
+  const main = WORK.filter(w=>!w.short);
+  const list = activeFilter==="All"?main:main.filter(w=>w.tags.includes(activeFilter));
+  $("#workGrid").innerHTML = list.map((w,i)=>{
+    const copy = {...w};
+    if(activeFilter!=="All"){copy.layout = i===0?"feature":"";}
+    return cardHTML(copy, WORK.indexOf(w));
+  }).join("") || `<p class="empty">Nothing here yet.</p>`;
+  observeReveals();
+}
+$("#filters").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-f]"); if(!b) return;
+  activeFilter=b.dataset.f;
+  try{localStorage.setItem("mu-filter",activeFilter)}catch(e){}
+  renderFilters(); renderWork();
+});
+
+function renderTimeline(){
+  $("#timeline").innerHTML = TIMELINE.map(t=>`<div class="tl reveal">
+    <div class="when">${t.when}</div>
+    <div><h3>${t.title}</h3><div class="org">${t.org}</div><p>${t.text}</p>${t.items?`<ul>${t.items.map(x=>`<li>${x}</li>`).join("")}</ul>`:""}</div>
+  </div>`).join("");
+}
+
+function outcomeHTML(o){
+  return `<div class="outcome"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8 H8 V0 H92 V8 H100 V92 H92 V100 H8 V92 H0 Z"/></svg><b>${o[0]}</b><span>${o[1]}</span></div>`;
+}
+
+function renderCase(id){
+  const i = WORK.findIndex(w=>w.id===id); const w=WORK[i];
+  const prev = WORK[(i-1+WORK.length)%WORK.length], next = WORK[(i+1)%WORK.length];
+  const sid = s=>w.id+"-"+s.toLowerCase().replace(/[^a-z]+/g,"-");
+  $("#view-case").innerHTML = `
+  <section class="band band-dark hero cs-hero" data-surface="dark">
+    <canvas class="pixels-alt" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <a class="back" href="#work" data-go="work">← Back to portfolio</a>
+      <p class="eyebrow" style="margin-bottom:18px">${w.company} · ${w.kind}</p>
+      <h1>${esc(w.title)}</h1>
+      <p class="lead">${w.summary}</p>
+      <dl class="cs-facts">${w.facts.map(f=>`<div><dt>${f[0]}</dt><dd>${f[1]}</dd></div>`).join("")}<div><dt>When</dt><dd>${w.years}</dd></div></dl>
+    </div>
+  </section>
+  <section class="band band-paper section" data-surface="light" style="padding-block:56px">
+    <div class="wrap"><div class="outcomes">${w.outcomes.map(outcomeHTML).join("")}</div></div>
+  </section>
+  <section class="band band-warm section" data-surface="light">
+    <div class="wrap rail">
+      <nav class="toc" aria-label="On this page">${w.sections.map(s=>`<a href="#${w.id}" data-sec="${sid(s[0])}">${s[0]}</a>`).join("")}</nav>
+      <div class="prose">${w.sections.map(s=>`<section id="${sid(s[0])}"><h2>${s[0]}</h2>${s[1]}</section>`).join("")}</div>
+    </div>
+  </section>
+  <section class="band band-dark section" data-surface="dark" style="padding-bottom:0">
+    <div class="wrap">
+      <p class="eyebrow" style="margin-bottom:20px">More work</p>
+      <div class="pn">
+        <a href="#${prev.id}" data-go="${prev.id}"><span class="eyebrow">← Previous · ${prev.company}</span><h3>${esc(prev.title)}</h3></a>
+        <a class="next" href="#${next.id}" data-go="${next.id}"><span class="eyebrow">Next · ${next.company} →</span><h3>${esc(next.title)}</h3></a>
+      </div>
+    </div>
+  </section>`;
+  $("#view-case").querySelectorAll(".toc a").forEach(a=>a.addEventListener("click",e=>{
+    e.preventDefault(); document.getElementById(a.dataset.sec).scrollIntoView({behavior:reduce?"auto":"smooth"});
+  }));
+  startPixels($("#view-case .pixels-alt"), w.id.length);
+}
+
+/* routing: plain #tokens only */
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function route(token, push){
+  token = token || "work";
+  const isCase = WORK.some(w=>w.id===token);
+  const view = isCase ? "case" : (token==="about"||token==="cv") ? "about" : "work";
+  document.querySelectorAll(".view").forEach(v=>v.hidden = v.id!=="view-"+view);
+  if(isCase) renderCase(token);
+  document.querySelectorAll(".nav-links a[data-go]").forEach(a=>{
+    const on = (a.dataset.go==="work"&&(view==="work"||view==="case")) || (a.dataset.go==="about"&&token==="about") || (a.dataset.go==="cv"&&token==="cv");
+    if(on) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
+  });
+  if(push){ try{ history.pushState(null,"","#"+token) }catch(e){} }
+  if(token==="contact"){ $("#contact").scrollIntoView({behavior:reduce?"auto":"smooth"}); }
+  else if(token==="cv"){ $("#cv-anchor").scrollIntoView(); }
+  else window.scrollTo(0,0);
+  observeReveals(); updateNav(); dispatchEvent(new Event("resize"));
+}
+document.addEventListener("click",e=>{
+  const a=e.target.closest("a[data-go]"); if(!a) return;
+  e.preventDefault(); closeMenu(); route(a.dataset.go,true);
+});
+addEventListener("popstate",()=>route(location.hash.slice(1)));
+
+/* menu */
+const menu=$("#menu"), menuBtn=$("#menuBtn");
+function openMenu(){menu.classList.add("open");menuBtn.setAttribute("aria-expanded","true");document.body.style.overflow="hidden";$("#menuClose").focus()}
+function closeMenu(){if(!menu.classList.contains("open"))return;menu.classList.remove("open");menuBtn.setAttribute("aria-expanded","false");document.body.style.overflow="";menuBtn.focus()}
+menuBtn.addEventListener("click",openMenu);
+$("#menuClose").addEventListener("click",closeMenu);
+addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu()});
+
+/* nav surface inversion */
+const nav=$("#nav");
+function updateNav(){
+  const y = nav.getBoundingClientRect().bottom - 4;
+  let surface="dark";
+  for(const s of document.querySelectorAll("[data-surface]")){
+    if(s.closest("[hidden]")) continue;
+    const r=s.getBoundingClientRect();
+    if(r.top<=y && r.bottom>y){surface=s.dataset.surface;break;}
+  }
+  nav.dataset.on=surface;
+  nav.classList.toggle("scrolled",scrollY>20);
+  const toc=document.querySelectorAll("#view-case .toc a");
+  if(toc.length){
+    let cur=null; toc.forEach(a=>{const el=document.getElementById(a.dataset.sec); if(el && el.getBoundingClientRect().top<innerHeight*.35) cur=a});
+    toc.forEach(a=>a.classList.toggle("on",a===cur));
+  }
+}
+addEventListener("scroll",updateNav,{passive:true});
+addEventListener("resize",updateNav);
+
+/* reveal: content is visible at rest; only items below the fold get a small offset */
+let io;
+function observeReveals(){
+  if(reduce || !("IntersectionObserver" in window)) return;
+  io = io || new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.remove("pre");io.unobserve(en.target)}}),{rootMargin:"0px 0px -8% 0px"});
+  document.querySelectorAll(".reveal:not([data-r])").forEach(el=>{
+    el.dataset.r=1;
+    if(el.closest("[hidden]")) {el.removeAttribute("data-r");return}
+    if(el.getBoundingClientRect().top>innerHeight){el.classList.add("pre");io.observe(el)}
+  });
+}
+
+/* pixel field hero */
+const running=new Set();
+function startPixels(cv, seed=1){
+  if(!cv) return;
+  const ctx=cv.getContext("2d"); const S=18; let w,h,cols,rows,cells,mx=-999,my=-999;
+  function size(){
+    const r=cv.getBoundingClientRect(), d=Math.min(devicePixelRatio||1,2);
+    w=r.width;h=r.height;cv.width=w*d;cv.height=h*d;ctx.setTransform(d,0,0,d,0,0);
+    cols=Math.ceil(w/S);rows=Math.ceil(h/S);
+    let x=seed*7919; cells=[];
+    for(let i=0;i<cols*rows;i++){x=(x*9301+49297)%233280;cells.push(x/233280)}
+  }
+  function draw(t){
+    ctx.clearRect(0,0,w,h);
+    for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+      const v=cells[r*cols+c];
+      const fx=c/cols, fy=r/rows;
+      let a = (v>0.86? 0.10:0.03) * (0.4+fx*0.9) * (1-fy*0.5);
+      if(!reduce){a += Math.max(0,Math.sin(t/1400 + v*12))*0.04*(v>0.8?1:0)}
+      const dx=c*S+S/2-mx, dy=r*S+S/2-my, d=Math.hypot(dx,dy);
+      if(d<140) a += (1-d/140)*0.22;
+      const isAccent = v>0.985;
+      ctx.fillStyle = isAccent ? `rgba(229,205,0,${Math.min(1,a*3.2)})` : `rgba(243,239,231,${a})`;
+      ctx.fillRect(c*S+1,r*S+1,S-3,S-3);
+    }
+  }
+  size();
+  const host=cv.parentElement;
+  host.addEventListener("pointermove",e=>{const r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top; if(reduce)draw(0)});
+  host.addEventListener("pointerleave",()=>{mx=my=-999; if(reduce)draw(0)});
+  addEventListener("resize",()=>{size();draw(performance.now())});
+  if(reduce){draw(0);return}
+  const loop=t=>{ if(!cv.isConnected) return; if(!cv.closest("[hidden]")) draw(t); requestAnimationFrame(loop)};
+  requestAnimationFrame(loop);
+}
+
+/* copy email */
+$("#copyEmail").addEventListener("click",()=>{
+  const txt=$("#email").textContent;
+  const done=m=>$("#copyMsg").textContent=m;
+  try{
+    navigator.clipboard.writeText(txt).then(()=>done("Email copied."),()=>{selectEmail();done("Press Ctrl+C or ⌘C to copy.")});
+  }catch(e){selectEmail();done("Press Ctrl+C or ⌘C to copy.")}
+});
+function selectEmail(){const r=document.createRange();r.selectNodeContents($("#email"));const s=getSelection();s.removeAllRanges();s.addRange(r)}
+
+function renderWriting(){
+  $("#writing").innerHTML = WRITING.map(w=>`<a class="post" href="${w.u}" target="_blank" rel="noopener"><span class="eyebrow">${w.k}</span><h3>${w.t}</h3><span class="foot">Read on Medium ↗</span></a>`).join("")
+    + `<a class="post talk" href="https://youtu.be/n5OGSw6Fw8Q?si=rU27-F196uKrwYkl" target="_blank" rel="noopener"><span class="eyebrow">Talk · d.Zone 2023</span><h3>Emotional design for the enterprise world</h3><span class="foot">Watch on YouTube ↗</span></a>`;
+}
+renderFilters(); renderWork(); renderTimeline(); renderWriting();
+startPixels($("#pixels"),1);
+startPixels($("#view-about .pixels-alt"),5);
+route(location.hash.slice(1));
+</script>
+
+</body>
+</html>
