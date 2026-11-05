@@ -50,7 +50,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{background:var(--ink);color:var(--text-light);font-family:var(--f-body);font-size:var(--text-body);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;background:#07080f;color:var(--text-light);font-family:var(--f-body);font-size:var(--text-body);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
 a{color:inherit}
 h1,h2,h3{font-family:var(--f-display);font-variation-settings:"opsz" 32;letter-spacing:-.035em;line-height:1.02;margin:0;text-wrap:balance;font-weight:650}
@@ -65,7 +65,18 @@ p{margin:0}
 
 /* bands */
 .band{position:relative}
-.band-dark{background:var(--ink);color:var(--text-light)}
+.band-dark{background:rgba(6,7,12,.34);color:var(--text-light)}
+.band-dark.hero{background:rgba(6,7,12,.34)}
+.hero h1,.hero .lead,.hero .eyebrow{text-shadow:0 1px 18px rgba(4,5,10,.85)}
+.band-space{background:rgba(6,7,12,.34);color:var(--text-light);--muted:var(--text-light-2);--line:rgba(243,239,231,.14)}
+.band-space-alt{background:rgba(6,7,12,.34)}
+.band-space .post{background:rgba(255,255,255,.04)}
+.quote{background:rgba(22,22,34,.62)!important;backdrop-filter:blur(6px)}
+.band-space .post:hover{border-color:var(--text-light)}
+.band-space .values article{border-top-color:var(--text-light)}
+.band-space .principle blockquote{color:var(--text-light)}
+#cosmos{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:-1;pointer-events:none}
+.hero canvas#pixels,.hero canvas.pixels-alt,.hero::after{display:none}
 .band-warm{background:var(--warm);color:var(--text-dark)}
 .band-paper{background:var(--paper);color:var(--text-dark)}
 .band-warm,.band-paper{--muted:var(--text-dark-2);--line:var(--line-light)}
@@ -174,7 +185,7 @@ p{margin:0}
 .email{font:500 .94rem var(--f-mono);user-select:all;padding:12px 16px;border:1px dashed var(--line);border-radius:12px}
 .copy-msg{font-size:var(--text-small);color:var(--muted);min-height:1.2em}
 
-footer{border-top:1px solid var(--ink-line)}
+footer{border-top:1px solid var(--ink-line);background:rgba(6,7,12,.7)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-block:28px calc(28px + env(safe-area-inset-bottom,0px));font-size:var(--text-small);color:var(--text-light-2)}
 footer nav{display:flex;flex-wrap:wrap;gap:18px}
 footer a{text-decoration:none}
@@ -309,17 +320,18 @@ footer a:hover{color:var(--text-light)}
 <body>
 
 
+<canvas id="cosmos" aria-hidden="true"></canvas>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="nav" id="nav" data-on="dark">
   <div class="wrap">
-    <a class="logo" href="#work" data-go="work" aria-label="Moupiya Ukil, home">
+    <a class="logo" href="#about" data-go="about" aria-label="Moupiya Ukil, home">
       <span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
       Moupiya Ukil
     </a>
     <nav class="nav-links" aria-label="Main">
-      <a href="#work" data-go="work">Work</a>
       <a href="#about" data-go="about">About</a>
+      <a href="#work" data-go="work">Work</a>
       <a href="#cv" data-go="cv">CV</a>
       <a class="btn btn-primary" href="#contact" data-go="contact">Get in touch</a>
     </nav>
@@ -328,8 +340,8 @@ footer a:hover{color:var(--text-light)}
 </header>
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
   <button class="menu-close" id="menuClose">Close</button>
-  <a href="#work" data-go="work">Work</a>
   <a href="#about" data-go="about">About</a>
+  <a href="#work" data-go="work">Work</a>
   <a href="#cv" data-go="cv">CV</a>
   <a href="#contact" data-go="contact">Contact</a>
 </div>
@@ -359,7 +371,7 @@ footer a:hover{color:var(--text-light)}
       </div>
     </section>
 
-    <section class="band band-paper section" data-surface="light">
+    <section class="band band-space section" data-surface="dark">
       <div class="wrap">
         <div class="section-head reveal">
           <h2>Writing &amp; talks</h2>
@@ -369,7 +381,7 @@ footer a:hover{color:var(--text-light)}
       </div>
     </section>
 
-    <section class="band band-warm section" data-surface="light">
+    <section class="band band-space band-space-alt section" data-surface="dark">
       <div class="wrap">
         <div class="section-head reveal">
           <h2>Earlier work</h2>
@@ -411,13 +423,13 @@ footer a:hover{color:var(--text-light)}
     <section class="band band-dark hero" data-surface="dark">
       <canvas class="pixels-alt" aria-hidden="true"></canvas>
       <div class="wrap">
-        <p class="eyebrow" style="margin-bottom:22px">About</p>
+        <p class="eyebrow" style="margin-bottom:22px">Product design leader</p>
         <h1>I build design teams that <em>earn trust</em></h1>
         <p class="lead">Senior Design Manager at JumpCloud, heading design for APAC and EMEA. Previously India Site Lead for design at Opendoor and at AppDynamics, Cisco, where I helped design Cisco's flagship Full-Stack Observability offering.</p>
       </div>
     </section>
 
-    <section class="band band-paper section" data-surface="light">
+    <section class="band band-space section" data-surface="dark">
       <div class="wrap about-intro">
         <div class="l reveal">
           <p>I'm a designer who is also passionate about building design teams. At JumpCloud, Opendoor and Cisco I've shaped a culture of <strong>mutual trust, ownership and curiosity</strong> as the foundation of each team.</p>
@@ -430,7 +442,7 @@ footer a:hover{color:var(--text-light)}
       </div>
     </section>
 
-    <section class="band band-warm section" data-surface="light">
+    <section class="band band-space band-space-alt section" data-surface="dark">
       <div class="wrap">
         <div class="section-head reveal">
           <h2>How I add value to design teams</h2>
@@ -445,7 +457,7 @@ footer a:hover{color:var(--text-light)}
       </div>
     </section>
 
-    <section class="band band-paper section" data-surface="light">
+    <section class="band band-space section" data-surface="dark">
       <div class="wrap">
         <div class="section-head reveal">
           <h2>My design &amp; leadership philosophy</h2>
@@ -482,7 +494,7 @@ footer a:hover{color:var(--text-light)}
       </div>
     </section>
 
-    <section class="band band-paper section" id="cv-anchor" data-surface="light">
+    <section class="band band-space section" id="cv-anchor" data-surface="dark">
       <div class="wrap">
         <div class="section-head reveal">
           <h2>Experience</h2>
@@ -492,7 +504,7 @@ footer a:hover{color:var(--text-light)}
       </div>
     </section>
 
-    <section class="band band-warm section" data-surface="light">
+    <section class="band band-space band-space-alt section" data-surface="dark">
       <div class="wrap cols3">
         <div class="reveal">
           <h3>Education</h3>
@@ -545,8 +557,8 @@ footer a:hover{color:var(--text-light)}
   <div class="wrap">
     <span>© 2026 Moupiya Ukil · Bengaluru, India</span>
     <nav aria-label="Footer">
-      <a href="#work" data-go="work">Work</a>
       <a href="#about" data-go="about">About</a>
+      <a href="#work" data-go="work">Work</a>
       <a href="#cv" data-go="cv">CV</a>
       <a href="https://www.linkedin.com/in/moupiyaukil/" target="_blank" rel="noopener">LinkedIn</a>
     </nav>
@@ -781,9 +793,9 @@ function renderCase(id){
 /* routing: plain #tokens only */
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 function route(token, push){
-  token = token || "work";
+  token = token || "about";
   const isCase = WORK.some(w=>w.id===token);
-  const view = isCase ? "case" : (token==="about"||token==="cv") ? "about" : "work";
+  const view = isCase ? "case" : (token==="about"||token==="cv") ? "about" : token==="contact" ? (document.querySelector("#view-work:not([hidden])")?"work":"about") : "work";
   document.querySelectorAll(".view").forEach(v=>v.hidden = v.id!=="view-"+view);
   if(isCase) renderCase(token);
   document.querySelectorAll(".nav-links a[data-go]").forEach(a=>{
@@ -794,7 +806,7 @@ function route(token, push){
   if(token==="contact"){ $("#contact").scrollIntoView({behavior:reduce?"auto":"smooth"}); }
   else if(token==="cv"){ $("#cv-anchor").scrollIntoView(); }
   else window.scrollTo(0,0);
-  observeReveals(); updateNav(); dispatchEvent(new Event("resize"));
+  observeReveals(); updateNav(); dispatchEvent(new Event("resize")); if(window.cosmosRetarget) cosmosRetarget();
 }
 document.addEventListener("click",e=>{
   const a=e.target.closest("a[data-go]"); if(!a) return;
@@ -846,7 +858,7 @@ function observeReveals(){
 /* pixel field hero */
 const running=new Set();
 function startPixels(cv, seed=1){
-  if(!cv) return;
+  return; /* replaced by the cosmos background */
   const ctx=cv.getContext("2d"); const S=18; let w,h,cols,rows,cells,mx=-999,my=-999;
   function size(){
     const r=cv.getBoundingClientRect(), d=Math.min(devicePixelRatio||1,2);
@@ -897,6 +909,161 @@ renderFilters(); renderWork(); renderTimeline(); renderWriting();
 startPixels($("#pixels"),1);
 startPixels($("#view-about .pixels-alt"),5);
 route(location.hash.slice(1));
+/* cosmos: a Milky Way that recedes as you scroll, revealing other galaxies and then the cosmic web */
+(function(){
+  const cv=document.getElementById("cosmos"); if(!cv) return;
+  const ctx=cv.getContext("2d");
+  const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let W=0,H=0,D=1,small=false;
+  let rnd=(s=>()=>(s=(s*16807)%2147483647)/2147483647)(20141106);
+  const gauss=()=>{let u=0,v=0;while(!u)u=rnd();while(!v)v=rnd();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)};
+  const mk=(w,h)=>{const c=document.createElement("canvas");c.width=w;c.height=h;return c};
+
+  /* 1. our galaxy: a spiral seen at an angle, rendered once */
+  function buildGalaxy(N){
+    const g=mk(N,N), x=g.getContext("2d"), c=N/2, R=N*0.48, inc=0.34;
+    const P=(gx,gy)=>[c+gx*R, c+gy*R*inc];
+    const gr=x.createRadialGradient(c,c,0,c,c,R);
+    gr.addColorStop(0,"rgba(255,226,180,.55)");gr.addColorStop(.12,"rgba(255,206,160,.22)");
+    gr.addColorStop(.45,"rgba(150,165,230,.07)");gr.addColorStop(1,"rgba(0,0,0,0)");
+    x.save();x.translate(c,c);x.scale(1,inc);x.translate(-c,-c);x.fillStyle=gr;x.beginPath();x.arc(c,c,R,0,7);x.fill();x.restore();
+    x.globalCompositeOperation="lighter";
+    const stars=small?26000:52000;
+    for(let i=0;i<stars;i++){
+      let r,t,col,a,s;
+      if(i<stars*0.18){ r=Math.abs(gauss())*0.11; t=rnd()*6.283; col="255,214,170"; a=.28; s=1.3; }
+      else{
+        r=0.05+Math.pow(rnd(),0.75)*0.95;
+        const arm=(i%2)*Math.PI + ((i%5===0)?Math.PI/2:0);
+        t=Math.log(r/0.05)/0.28 + arm + gauss()*(0.18+0.22*r);
+        const hot=rnd(); col= hot>.985?"255,120,165": hot>.6?"200,214,255":"255,240,225"; a=.22*(1.15-r); s=hot>.985?2.2:1.1;
+      }
+      const p=P(Math.cos(t)*r, Math.sin(t)*r);
+      x.fillStyle=`rgba(${col},${a})`; x.fillRect(p[0],p[1],s,s);
+    }
+    /* dust lanes trailing the arms */
+    x.globalCompositeOperation="source-over";
+    for(let i=0;i<(small?2500:5000);i++){
+      const r=0.08+Math.pow(rnd(),0.9)*0.75, arm=(i%2)*Math.PI;
+      const t=Math.log(r/0.05)/0.28+arm-0.32+gauss()*0.08, p=P(Math.cos(t)*r,Math.sin(t)*r);
+      x.fillStyle="rgba(4,5,10,.10)"; x.beginPath(); x.ellipse(p[0],p[1],N*0.012,N*0.004,0,0,7); x.fill();
+    }
+    return g;
+  }
+
+  /* 2. distant galaxy sprites */
+  function sprite(kind,hue){
+    const n=64,g=mk(n,n),x=g.getContext("2d");
+    const gr=x.createRadialGradient(32,32,0,32,32,30);
+    gr.addColorStop(0,`hsla(${hue},70%,88%,.95)`);gr.addColorStop(.25,`hsla(${hue},60%,70%,.35)`);gr.addColorStop(1,"hsla(0,0%,0%,0)");
+    x.translate(32,32); x.scale(1,kind===0?1:kind===1?.45:.22); x.fillStyle=gr; x.beginPath(); x.arc(0,0,30,0,7); x.fill();
+    return g;
+  }
+
+  /* 3. cosmic web: faint filaments between clusters */
+  function buildWeb(N){
+    const g=mk(N,N),x=g.getContext("2d"); x.globalCompositeOperation="lighter";
+    const nodes=[]; for(let i=0;i<46;i++) nodes.push([rnd()*N,rnd()*N,0.4+rnd()]);
+    for(const a of nodes){
+      const near=nodes.map(b=>[b,Math.hypot(a[0]-b[0],a[1]-b[1])]).sort((p,q)=>p[1]-q[1]).slice(1,4);
+      for(const [b,d] of near){
+        const steps=Math.floor(d/2.2);
+        for(let k=0;k<steps;k++){const t=k/steps, j=gauss()*N*0.006*(1+Math.sin(t*Math.PI)*1.5);
+          x.fillStyle=`rgba(${150+rnd()*90|0},${130+rnd()*60|0},255,.13)`; x.fillRect(a[0]+(b[0]-a[0])*t+j, a[1]+(b[1]-a[1])*t+gauss()*N*0.006, 1.4,1.4);}
+      }
+      for(let k=0;k<180*a[2];k++){x.fillStyle="rgba(255,205,190,.2)";x.fillRect(a[0]+gauss()*N*.012,a[1]+gauss()*N*.012,1.6,1.6)}
+    }
+    return g;
+  }
+
+  /* 0. the Milky Way as seen from inside: a band of stars, glow and a dark dust rift */
+  function buildBand(){
+    const diag=Math.hypot(W,H), L=Math.ceil(diag*2.1), T=Math.ceil(diag*0.75), m=T/2;
+    const g=mk(L,T), x=g.getContext("2d"), wid=diag*0.12;
+    x.globalCompositeOperation="lighter";
+    const blob=(px,py,r,col,a)=>{const gr=x.createRadialGradient(px,py,0,px,py,r);gr.addColorStop(0,`rgba(${col},${a})`);gr.addColorStop(1,`rgba(${col},0)`);x.fillStyle=gr;x.fillRect(px-r,py-r,2*r,2*r)};
+    for(let i=0;i<(small?110:220);i++){ const u=rnd()*L, v=m+gauss()*wid*0.55, core=Math.exp(-Math.pow((u-L*0.5)/(L*0.28),2));
+      const col=rnd()>.55?"255,222,190":rnd()>.2?"175,192,255":"255,150,190";
+      blob(u,v,wid*(0.35+rnd()*0.9),col,(0.035+0.07*core)); }
+    for(let i=0;i<(small?9000:20000);i++){ const u=rnd()*L, v=m+gauss()*wid*(rnd()>.7?1.1:0.45);
+      const b=rnd(); x.fillStyle=`rgba(${b>.85?"255,214,170":b>.6?"200,214,255":"255,255,255"},${0.25+rnd()*0.55})`; const r=rnd()>.97?1.8:rnd()>.7?1.1:0.7; x.fillRect(u,v,r,r); }
+    x.globalCompositeOperation="source-over";
+    let off=0; for(let u=0;u<L;u+=wid*0.08){ off+= (rnd()-0.5)*wid*0.06; off*=0.97;
+      for(let k=0;k<3;k++){ const v=m+off+gauss()*wid*0.12; x.fillStyle=`rgba(5,6,12,${0.10+rnd()*0.12})`; x.beginPath(); x.ellipse(u+gauss()*wid*0.1,v,wid*(0.12+rnd()*0.25),wid*(0.03+rnd()*0.06),gauss()*0.15,0,7); x.fill(); } }
+    x.globalCompositeOperation="lighter";
+    for(let i=0;i<(small?900:2000);i++){ const u=rnd()*L, v=m+gauss()*wid*0.5; x.fillStyle=`rgba(255,255,255,${0.5+rnd()*0.5})`; x.fillRect(u,v,rnd()>.9?1.6:1,rnd()>.9?1.6:1); }
+    return g;
+  }
+  let sprites=[], field=[], web=null, galaxy=null, layers=[], band=null;
+  function build(){
+    small = Math.min(innerWidth,innerHeight)<700;
+    galaxy=buildGalaxy(small?1400:2048);
+    sprites=[]; for(let k=0;k<3;k++)for(const h of [35,210,280,15]) sprites.push(sprite(k,h));
+    field=[]; for(let i=0;i<(small?160:300);i++){ const r=0.35+Math.pow(rnd(),0.6)*4.5, t=rnd()*6.283;
+      field.push({x:Math.cos(t)*r,y:Math.sin(t)*r,s:0.02+rnd()*0.07,rot:rnd()*3.14,sp:sprites[(rnd()*sprites.length)|0],a:0.35+rnd()*0.6}); }
+    web=buildWeb(small?1200:1800);
+    layers=[0.06,0.16,0.34].map((f,li)=>({f,stars:Array.from({length:small?[160,90,40][li]:[320,170,70][li]},()=>({x:rnd(),y:rnd(),r:(li+1)*0.45+rnd()*0.6,a:0.35+rnd()*0.6,tw:rnd()*6.283,c:rnd()>.9?"255,214,170":rnd()>.75?"190,210,255":"255,255,255"}))}));
+  }
+  function size(){ D=Math.min(devicePixelRatio||1,2); W=innerWidth; H=innerHeight; cv.width=W*D; cv.height=H*D; ctx.setTransform(D,0,0,D,0,0); band=buildBand(); }
+
+  const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+  let pT=0,pC=0,raf=0;
+  function target(){ const max=document.documentElement.scrollHeight-innerHeight; pT = max>0? Math.min(1,Math.max(0,scrollY/max)) : 0; }
+
+  function draw(time){
+    const e=ease(pC), diag=Math.hypot(W,H);
+    /* deep-space backdrop, drifting toward violet as we go deeper */
+    const bg=ctx.createLinearGradient(0,0,W,H);
+    bg.addColorStop(0,`rgb(${8+e*6|0},${9+e|0},${18+e*4|0})`); bg.addColorStop(1,`rgb(${5+e*10|0},5,${10+e*6|0})`);
+    ctx.setTransform(D,0,0,D,0,0); ctx.globalAlpha=1; ctx.globalCompositeOperation="source-over"; ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+
+    /* the camera pulls back: from inside the band to a small spiral far away */
+    const sm=(a,b,v)=>{const t=Math.min(1,Math.max(0,(v-a)/(b-a)));return t*t*(3-2*t)};
+    const sMax=diag*1.5/galaxy.width, sMin=Math.min(W,H)*0.3/galaxy.width;
+    const s=sMax*Math.pow(sMin/sMax,e);
+    const cx=W*(0.7+0.06*e), cy=H*(0.3+0.22*e), rot=-0.5+e*0.35;
+
+    /* cosmic web, the furthest layer */
+    const wA=Math.max(0,(e-0.45)/0.55);
+    if(wA>0){ const ws=diag*1.6/web.width*Math.pow(0.55,e); ctx.save(); ctx.globalAlpha=wA*0.9; ctx.globalCompositeOperation="lighter";
+      ctx.translate(cx,cy); ctx.rotate(rot*0.3); ctx.drawImage(web,-web.width*ws/2,-web.height*ws/2,web.width*ws,web.height*ws); ctx.restore(); }
+
+    /* neighbouring galaxies */
+    const fA=Math.min(1,Math.max(0,(e-0.08)/0.35));
+    if(fA>0){ const unit=galaxy.width*s*0.95; ctx.globalCompositeOperation="lighter";
+      for(const g of field){ const gx=cx+g.x*unit*2.2, gy=cy+g.y*unit*2.2, sz=Math.max(2.5,g.s*unit*2.4);
+        if(gx<-sz||gy<-sz||gx>W+sz||gy>H+sz) continue;
+        ctx.globalAlpha=fA*g.a; ctx.translate(gx,gy); ctx.rotate(g.rot); ctx.drawImage(g.sp,-sz/2,-sz/2,sz,sz); ctx.setTransform(D,0,0,D,0,0); }
+      ctx.globalAlpha=1; }
+
+    /* the Milky Way: first the band across the sky, which condenses into the spiral as we pull back */
+    const bA=1-sm(0.06,0.34,e);
+    if(bA>0){ const k=1-0.75*sm(0,0.4,e); ctx.save(); ctx.globalCompositeOperation="lighter"; ctx.globalAlpha=bA;
+      ctx.translate(cx,cy); ctx.rotate(rot); ctx.scale(k,k*(1-0.4*sm(0,0.4,e))); ctx.drawImage(band,-band.width/2,-band.height/2); ctx.restore(); }
+    const gA=sm(0.1,0.36,e)*(0.95-0.15*e);
+    if(gA>0){ ctx.save(); ctx.globalCompositeOperation="lighter"; ctx.globalAlpha=gA;
+      ctx.translate(cx,cy); ctx.rotate(rot); const gw=galaxy.width*s; ctx.drawImage(galaxy,-gw/2,-gw/2,gw,gw); ctx.restore(); }
+
+    /* nearby stars: drift up at different speeds, thinning out as we leave the galaxy */
+    const keep=Math.pow(1-e,1.6);
+    ctx.globalCompositeOperation="lighter";
+    for(const L of layers){ const off=(scrollY*L.f)%H;
+      for(const st of L.stars){ let y=st.y*H-off; if(y<0)y+=H;
+        const x=cx+(st.x*W-cx)*(1-0.35*e), yy=cy+(y-cy)*(1-0.35*e);
+        const tw=still?1:0.75+0.25*Math.sin(time/900+st.tw);
+        ctx.fillStyle=`rgba(${st.c},${st.a*tw*(0.25+0.75*keep)})`; const r=st.r*(1-0.4*e);
+        ctx.fillRect(x,yy,r,r); } }
+    ctx.globalCompositeOperation="source-over";
+  }
+  function loop(t){ pC+=(pT-pC)*0.09; draw(t); raf=requestAnimationFrame(loop); }
+  addEventListener("scroll",()=>{target(); if(still){pC=pT; draw(0);} },{passive:true});
+  let rt; addEventListener("resize",()=>{clearTimeout(rt); rt=setTimeout(()=>{size(); target(); if(still) draw(0);},120);});
+  document.addEventListener("visibilitychange",()=>{ cancelAnimationFrame(raf); if(!document.hidden && !still) raf=requestAnimationFrame(loop); });
+  window.cosmosRetarget=()=>{target(); if(still){pC=pT; draw(0);}};
+  size(); build(); target(); pC=pT;
+  if(still) draw(0); else raf=requestAnimationFrame(loop);
+})();
+
 </script>
 
 </body>
